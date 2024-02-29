@@ -3,6 +3,7 @@ from flask import (
 from settings import db, app
 from models import User
 from models import Proyecto
+from models import AsociacionProyectoUsuario
 
 
 @app.route('/usuario', methods=['GET'])
@@ -271,6 +272,130 @@ def delete_proyecto(id):
         pass
     resp = jsonify(message)
     return resp
+
+
+@app.route('/asociacionproyectousuario', methods=['GET'])
+def get_all_asociacionproyectousuario():
+    message = {
+        'status': 404,
+        'message': 'Algo salió mal'
+    }
+    try:
+        data = AsociacionProyectoUsuario.query.with_entities(
+            AsociacionProyectoUsuario.id, AsociacionProyectoUsuario.idProyecto,
+            AsociacionProyectoUsuario.idUsuario, AsociacionProyectoUsuario.rol
+        ).all()
+        message.update({
+            'status': 200,
+            'message': 'Se recuperan TODOS los registros de AsociacionProyectoUsuario',
+            'data': data
+        })
+    except:
+        pass
+    return jsonify(message)
+
+@app.route('/asociacionproyectousuario/<int:id>', methods=['GET'])
+def get_specific_asociacionproyectousuario(id):
+    message = {
+        'status': 404,
+        'message': 'AsociacionProyectoUsuario no existe'
+    }
+    data = AsociacionProyectoUsuario.query.with_entities(
+        AsociacionProyectoUsuario.id, AsociacionProyectoUsuario.idProyecto,
+        AsociacionProyectoUsuario.idUsuario, AsociacionProyectoUsuario.rol
+    ).filter_by(id=id).all()
+    if len(data) == 0:
+        return jsonify(message)
+    message.update({
+        'status': 200,
+        'message': 'Se recupero el registro de AsociacionProyectoUsuario',
+        'data': data
+    })
+    return jsonify(message)
+
+@app.route('/asociacionproyectousuario', methods=['POST'])
+def create_asociacionproyectousuario():
+    message = {
+        'status': 404,
+        'message': 'Algo salió mal'
+    }
+    try:
+        data = request.get_json()
+
+        idProyecto = data.get('idProyecto', '')
+        idUsuario = data.get('idUsuario', '')
+        rol = data.get('rol', '')
+
+        asociacionproyectousuario = AsociacionProyectoUsuario(
+            idProyecto=idProyecto,
+            idUsuario=idUsuario,
+            rol=rol
+        )
+        db.session.add(asociacionproyectousuario)
+        db.session.commit()
+        message.update({
+            'status': 201,
+            'message': 'AsociacionProyectoUsuario creado exitosamente!!! ',
+            'asociacion_proyecto_usuario_id': asociacionproyectousuario.id
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+@app.route('/asociacionproyectousuario/<int:id>', methods=['PUT'])
+def update_asociacionproyectousuario(id):
+    message = {
+        'status': 404,
+        'message': 'AsociacionProyectoUsuario no encontrado'
+    }
+    try:
+        new_id_proyecto = request.form.get('idProyecto', None)
+        new_id_usuario = request.form.get('idUsuario', None)
+        new_rol = request.form.get('rol', None)
+        
+        try:
+            current_asociacion_proyecto_usuario = AsociacionProyectoUsuario.query.get_or_404(id)
+        except:
+            return jsonify(message)
+
+        if new_id_proyecto:
+            current_asociacion_proyecto_usuario.idProyecto = new_id_proyecto
+        if new_id_usuario:
+            current_asociacion_proyecto_usuario.idUsuario = new_id_usuario
+        if new_rol:
+            current_asociacion_proyecto_usuario.rol = new_rol
+
+        db.session.commit()
+        message.update({
+            'status': 200,
+            'message': 'Detalles de AsociacionProyectoUsuario actualizados exitosamente!!! '
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+@app.route('/asociacionproyectousuario/<int:id>', methods=['DELETE'])
+def delete_asociacionproyectousuario(id):
+    message = {
+        'status': 404,
+        'message': 'AsociacionProyectoUsuario no encontrado'
+    }
+    try:
+        current_asociacion_proyecto_usuario = AsociacionProyectoUsuario.query.get_or_404(id)
+        db.session.delete(current_asociacion_proyecto_usuario)
+        db.session.commit()
+        message.update({
+            'status': 200,
+            'message': 'Registro de AsociacionProyectoUsuario eliminado exitosamente!!! '
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+
 
  # Se encuentra activada el modo DEBUG
 if __name__ == "__main__":
