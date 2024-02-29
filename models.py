@@ -59,7 +59,7 @@ class Tarea(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     descripcion = db.Column(db.Text)
     estado = db.Column(db.String(50), nullable=False)
-    idHistoriaUsuario = db.Column(db.Integer, db.ForeignKey('historiausuario.id'))
+    idHistoriaUsuario = db.Column(db.Integer, db.ForeignKey('historia_usuario.id'))
 
     def __str__(self):
-        return self.descripcion + self.estado + self.idHistoriaUsuario
+        return self.descripcion + self.estado + str(self.idHistoriaUsuario)
