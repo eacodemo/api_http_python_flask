@@ -10,13 +10,15 @@
 
 ## Como utilizar este codigo
 * Clonar el repositorio
-
-<li><code>git clone https://github.com/eacodemo/api_http_python_flask.git</code></li>
+<ul>
+  <li><code>git clone https://github.com/eacodemo/api_http_python_flask.git</code></li>
+</ul>
 
 * Instalar dependencias 
 <ul>
   <li><code>pip install -r requerimientos.txt</code></li>
 </ul>
+
 * Arrancar o ejecutar el codigo
 <ul>
   <li><code> python myapp.py </code></li>
@@ -27,7 +29,7 @@
 
 * Para obtener los registros de los usuarios.
 <ul>
-	<li> <strong>http://localhost:5000/user</strong></li>
+	<li> <code>http://localhost:5000/user</code></li>
 </ul>
 
 
