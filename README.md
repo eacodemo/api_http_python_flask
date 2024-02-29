@@ -169,7 +169,7 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
  
 * Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
   <ul>
-    <li> <code>http://localhost:5000//id</code></li>
+    <li> <code>http://localhost:5000/asociacionproyectousuario/id</code></li>
   </ul>
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
@@ -187,7 +187,7 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
 
 * Para eliminar elregistro de un usuario, con el metodo <code>DELETE</code>
   <ul>
-    <li> <code>http://localhost:5000//id</code></li>
+    <li> <code>http://localhost:5000/asociacionproyectousuario/id</code></li>
   </ul>
 
   
