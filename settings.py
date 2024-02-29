@@ -5,13 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 # define sqlite database file path 
 db_dir = os.path.abspath('data.sqlite')
 
-# app settings 
+# app Configuracion 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 app.config["DEBUG"] = True
-# Database connecting for Linux 
+
+# Conexion para base de datos linux
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+db_dir+'?check_same_thread=False'
 
-# Database connecting for Windows
+# Conexion para base de datos windows
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+db_dir
 db = SQLAlchemy(app)
