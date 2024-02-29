@@ -193,16 +193,16 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
   
 ### Historia de usuario
 
-Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
+Para obtener todos los registros de las historias de usuario, con el metodo <code>GET</code>
   <ul>
     <li> <code>http://localhost:5000/historiausuario</code></li>
   </ul>
-* Para obtener un registros especifico de un usuario, con el metodo <code>GET</code>
+* Para obtener un registro especifico de una historia de usuario, con el metodo <code>GET</code>
   <ul>
     <li> <code>http://localhost:5000/historiausuario/id</code></li>
   </ul>
   
-* Para crear un nuevo usuario, con el metodo <code>POST</code>
+* Para crear una nueva historia de usuario, con el metodo <code>POST</code>
   <ul>
     <li> <code>http://localhost:5000/historiausuario</code></li>
   </ul>
@@ -223,7 +223,7 @@ Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
     </li>
   </ul>
  
-* Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
+* Para actualizar los registros de las historias de usuario, con el metodo <code>PUT</code>
   <ul>
     <li> <code>http://localhost:5000/historiausuario/id</code></li>
   </ul>
@@ -243,23 +243,23 @@ Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
   </ul>
 
 
-* Para eliminar elregistro de una historia de usuario, con el metodo <code>DELETE</code>
+* Para eliminar el registro de una historia de usuario, con el metodo <code>DELETE</code>
   <ul>
     <li> <code>http://localhost:5000/historiausuario/id</code></li>
   </ul>
   
 ### Tareas
 
-Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
+Para obtener todos los registros de las tareas, con el metodo <code>GET</code>
   <ul>
     <li> <code>http://localhost:5000/tarea</code></li>
   </ul>
-* Para obtener un registros especifico de un usuario, con el metodo <code>GET</code>
+* Para obtener un registro especifico de una tarea, con el metodo <code>GET</code>
   <ul>
     <li> <code>http://localhost:5000/tarea/id</code></li>
   </ul>
   
-* Para crear un nuevo usuario, con el metodo <code>POST</code>
+* Para crear una nueva tarea, con el metodo <code>POST</code>
   <ul>
     <li> <code>http://localhost:5000/tarea</code></li>
   </ul>
@@ -268,17 +268,16 @@ Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
     <li>
         <pre>
-    {
-       	"nombreUsuario": "Juan Jose",
-  	"email": "Juan@gmail.com",
-  	"password": "fses",
-   	"tipo": "Gerente"
-    }	
+    	{
+	  "descripcion": "Tarea 4",
+  	  "estado": "Nuevo",
+  	  "idHistoriaUsuario": 3
+	}
         </pre>
     </li>
   </ul>
  
-* Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
+* Para actualizar los registros de las tareas, con el metodo <code>PUT</code>
   <ul>
     <li> <code>http://localhost:5000/tarea/id</code></li>
   </ul>
@@ -286,18 +285,17 @@ Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
     <li>
         <pre>
-    {
-        "nombreUsuario": "Juan Jose",
-        "email": "Juan@gmail.com",
-        "password": "igndsfuigfr", 
-        "tipo": "Gerente"
-    }
+        {
+          "descripcion": "Tarea 4",
+          "estado": "Nuevo",
+          "idHistoriaUsuario": 2
+        }
         </pre>
     </li>
   </ul>
 
 
-* Para eliminar elregistro de un usuario, con el metodo <code>DELETE</code>
+* Para eliminar elregistro de una tarea, con el metodo <code>DELETE</code>
   <ul>
     <li> <code>http://localhost:5000/tarea/id</code></li>
   </ul>
