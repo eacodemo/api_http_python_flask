@@ -440,41 +440,38 @@ def get_specific_historia(id):
     return jsonify(message)
 
 @app.route('/historiausuario', methods=['POST'])
-def create_historia_usuario():
+def create_historia():
+    message = {
+        'status': 404,
+        'message': 'Algo salió mal'
+    }
     try:
         data = request.get_json()
 
         detalles = data.get('Detalles', '')
         criterios_aceptacion = data.get('CriteriosAceptacion', '')
         estado = data.get('Estado', '')
-        id_proyecto = data.get('IdProyecto', None)
-        id_tarea = data.get('IdTarea', None)
+        id_proyecto = data.get('IdProyecto', '')
+        id_tarea = data.get('IdTarea', '')
 
-        historia_usuario = HistoriaUsuario(
+        historia = HistoriaUsuario(
             Detalles=detalles,
             CriteriosAceptacion=criterios_aceptacion,
             Estado=estado,
             IdProyecto=id_proyecto,
             IdTarea=id_tarea
         )
-
-        db.session.add(historia_usuario)
+        db.session.add(historia)
         db.session.commit()
-
-        message = {
+        message.update({
             'status': 201,
-            'message': 'Historia de Usuario creada exitosamente!!! ',
-            'historia_usuario_id': historia_usuario.id
-        }
-    except Exception as e:
-        message = {
-            'status': 404,
-            'message': f'Algo salió mal: {str(e)}'
-        }
-
+            'message': 'Historia de usuario creada exitosamente!!! ',
+            'historia_id': historia.id
+        })
+    except:
+        pass
     resp = jsonify(message)
     return resp
-
 
 @app.route('/historiausuario/<int:id>', methods=['PUT'])
 def update_historia(id):
@@ -583,26 +580,40 @@ def create_tarea():
     try:
         data = request.get_json()
 
-        descripcion = data.get('Descripcion', '')
-        estado = data.get('Estado', '')
-        id_historia_usuario = data.get('IdHistoriaUsuario', '')
+        if not data:
+            raise ValueError('No se proporcionaron datos JSON válidos en la solicitud.')
+
+        descripcion = data.get('descripcion', '')  # Ajusta aquí según el nombre correcto
+        estado = data.get('estado', '')  # Ajusta aquí según el nombre correcto
+        id_historia_usuario = data.get('idHistoriaUsuario', '')  # Ajusta aquí según el nombre correcto
+
+        if not descripcion or not estado or not id_historia_usuario:
+            raise ValueError('Faltan campos obligatorios en los datos proporcionados.')
 
         tarea = Tarea(
-            Descripcion=descripcion,
-            Estado=estado,
-            IdHistoriaUsuario=id_historia_usuario
+            descripcion=descripcion,
+            estado=estado,
+            idHistoriaUsuario=id_historia_usuario
         )
+
         db.session.add(tarea)
         db.session.commit()
+
         message.update({
             'status': 201,
             'message': 'Tarea creada exitosamente!!! ',
             'tarea_id': tarea.id
         })
-    except:
-        pass
+
+    except ValueError as ve:
+        message['message'] = str(ve)
+        message['status'] = 400  # Código de estado para una solicitud incorrecta
+    except Exception as e:
+        message['message'] = f'Error interno del servidor: {str(e)}'
+
     resp = jsonify(message)
     return resp
+
 
 @app.route('/tarea/<int:id>', methods=['PUT'])
 def update_tarea(id):
