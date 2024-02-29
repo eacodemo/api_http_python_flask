@@ -17,3 +17,17 @@
 <ul>
   <li><code>pip install -r requerimientos.txt</code></li>
 </ul>
+* Arrancar o ejecutar el codigo
+<ul>
+  <li><code> python myapp.py </code></li>
+  <li><code> python3 myapp.py </code></li>
+</ul>
+ 
+## Utilizar
+
+* Para obtener los registros de los usuarios.
+<ul>
+	<li> <strong>http://localhost:5000/user</strong></li>
+</ul>
+
+
