@@ -24,7 +24,7 @@
     <li><code> python3 myapp.py </code></li>
   </ul>
  
-## Utilizar
+## Utilizar los metodos de CRUD para este proyecto
 
 ### Usuarios
 
@@ -48,16 +48,14 @@
     <li>Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.</li>
     <li>Ve a la sección "Body" dentro de la solicitud en Postman.</li>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     {
-       	"nombreUsuario": "Juan Jose",
-  	"email": "Juan@gmail.com",
-  	"password": "fses",
-   	"tipo": "Gerente"
+      "nombreUsuario": "Juan Jose",
+      "email": "Juan@gmail.com",
+      "password": "fses",
+      "tipo": "Gerente"
     }	
         </pre>
-    </li>
   </ul>
  
 * Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
@@ -70,7 +68,6 @@
     <li>Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.</li>
     <li>Ve a la sección "Body" dentro de la solicitud en Postman.</li>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     {
         "nombreUsuario": "Juan Jose",
@@ -79,7 +76,6 @@
         "tipo": "Gerente"
     }
         </pre>
-    </li>
   </ul>
 
 
@@ -94,7 +90,7 @@
   <ul>
     <li> <code>http://localhost:5000/proyecto</code></li>
   </ul>
-* Para obtener un registros especifico de un usuario, con el metodo <code>GET</code>
+* Para obtener un registros especifico de un proyecto, con el metodo <code>GET</code>
   <ul>
     <li> <code>http://localhost:5000/proyecto/id</code></li>
   </ul>
@@ -106,14 +102,12 @@
 
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     {
       "nombre": "Proyecto Nuevo 5",
       "descripcion": "Descripción del Proyecto 5"
     }
         </pre>
-    </li>
   </ul>
  
 * Para actualizar los registros de los proyectos, con el metodo <code>PUT</code>
@@ -122,14 +116,12 @@
   </ul>
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     {
         "nombre": "Proyecto Nuevo 5",
         "descripcion": "Descripción del Proyecto  - actualizar"
     }
        </pre>
-    </li>
   </ul>
 
 
