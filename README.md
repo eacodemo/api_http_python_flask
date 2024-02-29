@@ -48,12 +48,12 @@
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
     <li>
         <pre>
-{
-  "nombreUsuario": "Juan Jose",
-  "email": "Juan@gmail.com",
-  "password": "fses",
-  "tipo": "Gerente"
-}
+	    {
+        	"nombreUsuario": "Juan Jose",
+  		"email": "Juan@gmail.com",
+  		"password": "fses",
+ 	  	"tipo": "Gerente"
+	    }	
         </pre>
     </li>
   </ul>
