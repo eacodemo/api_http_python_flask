@@ -10,9 +10,9 @@
 
 ## Como utilizar este codigo
 * Clonar el repositorio
-<ul>
-  <li><code>git clone https://github.com/eacodemo/api_http_python_flask.git</code></li>
-</ul>
+
+<li><code>git clone https://github.com/eacodemo/api_http_python_flask.git</code></li>
+
 * Instalar dependencias 
 <ul>
   <li><code>pip install -r requerimientos.txt</code></li>
