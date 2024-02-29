@@ -40,7 +40,7 @@
     <li> <code>http://localhost:5000/user</code></li>
   </ul>
 
-<ul>
+  <ul>
     <li>Abre Postman y crea una nueva solicitud.</li>
     <li>Selecciona el método POST en la barra desplegable.</li>
     <li>Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.</li>
@@ -56,7 +56,7 @@
 }
         </pre>
     </li>
-</ul>
+  </ul>
  
 * Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
   <ul>
