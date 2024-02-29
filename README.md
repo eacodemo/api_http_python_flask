@@ -42,18 +42,18 @@
 
   <ul>
     <li>Abre Postman y crea una nueva solicitud.</li>
-    <li>Selecciona el método POST en la barra desplegable.</li>
-    <li>Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.</li>
+    <li>Selecciona el método <code>POST</code> en la barra desplegable.</li>
+    <li>Ingresa la URL a la que deseas en<code>POST</code> la solicitud en la barra de direcciones.</li>
     <li>Ve a la sección "Body" dentro de la solicitud en Postman.</li>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
     <li>
         <pre>
-	    {
-        	"nombreUsuario": "Juan Jose",
-  		"email": "Juan@gmail.com",
-  		"password": "fses",
- 	  	"tipo": "Gerente"
-	    }	
+    {
+       	"nombreUsuario": "Juan Jose",
+  	"email": "Juan@gmail.com",
+  	"password": "fses",
+   	"tipo": "Gerente"
+    }	
         </pre>
     </li>
   </ul>
@@ -62,6 +62,24 @@
   <ul>
     <li> <code>http://localhost:5000/user/id</code></li>
   </ul>
+  <ul>
+    <li>Abre Postman y crea una nueva solicitud.</li>
+    <li>Selecciona el método <code>PUT</code> en la barra desplegable.</li>
+    <li>Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.</li>
+    <li>Ve a la sección "Body" dentro de la solicitud en Postman.</li>
+    <li>Selecciona <code>raw</code> como el tipo de datos.</li>
+    <li>
+        <pre>
+    {
+        "nombreUsuario": "Juan Jose",
+        "email": "Juan@gmail.com",
+        "password": "igndsfuigfr", 
+        "tipo": "Gerente"
+    }
+        </pre>
+    </li>
+  </ul>
+
 
 * Para eliminar elregistro de un usuario, con el metodo <code>DELETE</code>
   <ul>
