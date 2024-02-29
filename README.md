@@ -55,8 +55,7 @@
       "password": "fses",
       "tipo": "Gerente"
     }	
-        </pre>
-  </ul>
+        </pre> </ul>
  
 * Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
   <ul>
@@ -75,8 +74,7 @@
         "password": "igndsfuigfr", 
         "tipo": "Gerente"
     }
-        </pre>
-  </ul>
+        </pre> </ul>
 
 
 * Para eliminar elregistro de un usuario, con el metodo <code>DELETE</code>
@@ -107,8 +105,7 @@
       "nombre": "Proyecto Nuevo 5",
       "descripcion": "Descripción del Proyecto 5"
     }
-        </pre>
-  </ul>
+        </pre> </ul>
  
 * Para actualizar los registros de los proyectos, con el metodo <code>PUT</code>
   <ul>
@@ -121,8 +118,7 @@
         "nombre": "Proyecto Nuevo 5",
         "descripcion": "Descripción del Proyecto  - actualizar"
     }
-       </pre>
-  </ul>
+       </pre> </ul>
 
 
 * Para eliminar elregistro de un proyecto, con el metodo <code>DELETE</code>
@@ -141,14 +137,13 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
     <li> <code>http://localhost:5000/asociacionproyectousuario/id</code></li>
   </ul>
   
-* Para crear un nuevo usuario, con el metodo <code>POST</code>
+* Para crear una nueva asociasiondeproeyctousuario, con el metodo <code>POST</code>
   <ul>
     <li> <code>http://localhost:5000/asociacionproyectousuario</code></li>
   </ul>
 
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     {
       "idProyecto": 1,
@@ -156,16 +151,14 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
       "rol": "Gerente"
     }
         </pre>
-    </li>
-  </ul>
+ </ul>
  
-* Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
+* Para actualizar los registros de las asociaciones, con el metodo <code>PUT</code>
   <ul>
     <li> <code>http://localhost:5000/asociacionproyectousuario/id</code></li>
   </ul>
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     {
         "idProyecto": 1,
@@ -173,11 +166,10 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
         "rol": "Desarrollador"
     }
         </pre>
-    </li>
-  </ul>
+ </ul>
 
 
-* Para eliminar elregistro de un usuario, con el metodo <code>DELETE</code>
+* Para eliminar elregistro de una asociacion, con el metodo <code>DELETE</code>
   <ul>
     <li> <code>http://localhost:5000/asociacionproyectousuario/id</code></li>
   </ul>
@@ -201,7 +193,6 @@ Para obtener todos los registros de las historias de usuario, con el metodo <cod
 
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
  	{
 	 "Detalles": "Detalles de la historia",
@@ -210,9 +201,7 @@ Para obtener todos los registros de las historias de usuario, con el metodo <cod
   	 "IdProyecto": 1,
  	 "IdTarea": 1
 	}   
-	
         </pre>
-    </li>
   </ul>
  
 * Para actualizar los registros de las historias de usuario, con el metodo <code>PUT</code>
@@ -221,7 +210,6 @@ Para obtener todos los registros de las historias de usuario, con el metodo <cod
   </ul>
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     	 {
          "Detalles": "Detalles de la historia",
@@ -231,9 +219,7 @@ Para obtener todos los registros de las historias de usuario, con el metodo <cod
          "IdTarea": 1
         }
         </pre>
-    </li>
   </ul>
-
 
 * Para eliminar el registro de una historia de usuario, con el metodo <code>DELETE</code>
   <ul>
@@ -258,7 +244,6 @@ Para obtener todos los registros de las tareas, con el metodo <code>GET</code>
 
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
     	{
 	  "descripcion": "Tarea 4",
@@ -266,7 +251,6 @@ Para obtener todos los registros de las tareas, con el metodo <code>GET</code>
   	  "idHistoriaUsuario": 3
 	}
         </pre>
-    </li>
   </ul>
  
 * Para actualizar los registros de las tareas, con el metodo <code>PUT</code>
@@ -275,7 +259,6 @@ Para obtener todos los registros de las tareas, con el metodo <code>GET</code>
   </ul>
   <ul>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
-    <li>
         <pre>
         {
           "descripcion": "Tarea 4",
@@ -283,13 +266,12 @@ Para obtener todos los registros de las tareas, con el metodo <code>GET</code>
           "idHistoriaUsuario": 2
         }
         </pre>
-    </li>
   </ul>
-
 
 * Para eliminar elregistro de una tarea, con el metodo <code>DELETE</code>
   <ul>
     <li> <code>http://localhost:5000/tarea/id</code></li>
   </ul>
   
+
 
