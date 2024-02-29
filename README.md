@@ -39,15 +39,21 @@
   <ul>
     <li> <code>http://localhost:5000/user</code></li>
   </ul>
-**Abre Postman y crea una nueva solicitud.
-**Selecciona el método POST en la barra desplegable.
 
-Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.
-
-Ve a la sección "Body" dentro de la solicitud en Postman.
-
-Selecciona "raw" como el tipo de datos.
-
+<ul>
+	Abre Postman y crea una nueva solicitud.
+	Selecciona el método POST en la barra desplegable.
+	Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.
+	Ve a la sección "Body" dentro de la solicitud en Postman.
+	Selecciona <code>raw</code> como el tipo de datos.
+	<code>  {
+  	"nombreUsuario": "Juan Jose",
+ 	 "email": "Juan@gmail.com",
+  	"password": "fses",
+  	"tipo": "Gerente"
+	}
+	</code>
+</ul>
   
 * Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
   <ul>
