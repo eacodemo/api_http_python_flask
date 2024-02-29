@@ -4,7 +4,8 @@ from settings import db, app
 from models import User
 from models import Proyecto
 from models import AsociacionProyectoUsuario
-
+from models import HistoriaUsuario
+from models import Tarea
 
 @app.route('/usuario', methods=['GET'])
 def get_all_users():
@@ -395,6 +396,265 @@ def delete_asociacionproyectousuario(id):
     resp = jsonify(message)
     return resp
 
+
+
+@app.route('/historiausuario', methods=['GET'])
+def get_all_historias():
+    message = {
+        'status': 404,
+        'message': 'Algo salió mal'
+    }
+    try:
+        data = HistoriaUsuario.query.with_entities(
+            HistoriaUsuario.id, HistoriaUsuario.Detalles,
+            HistoriaUsuario.CriteriosAceptacion, HistoriaUsuario.Estado,
+            HistoriaUsuario.IdProyecto, HistoriaUsuario.IdTarea
+        ).all()
+        message.update({
+            'status': 200,
+            'message': 'Se recuperan TODOS los registros de HistoriaUsuario',
+            'data': data
+        })
+    except:
+        pass
+    return jsonify(message)
+
+@app.route('/historiausuario/<int:id>', methods=['GET'])
+def get_specific_historia(id):
+    message = {
+        'status': 404,
+        'message': 'Historia de usuario no existe'
+    }
+    data = HistoriaUsuario.query.with_entities(
+        HistoriaUsuario.id, HistoriaUsuario.Detalles,
+        HistoriaUsuario.CriteriosAceptacion, HistoriaUsuario.Estado,
+        HistoriaUsuario.IdProyecto, HistoriaUsuario.IdTarea
+    ).filter_by(id=id).all()
+    if len(data) == 0:
+        return jsonify(message)
+    message.update({
+        'status': 200,
+        'message': 'Se recupero el registro de Historia de usuario',
+        'data': data
+    })
+    return jsonify(message)
+
+@app.route('/historiausuario', methods=['POST'])
+def create_historia_usuario():
+    try:
+        data = request.get_json()
+
+        detalles = data.get('Detalles', '')
+        criterios_aceptacion = data.get('CriteriosAceptacion', '')
+        estado = data.get('Estado', '')
+        id_proyecto = data.get('IdProyecto', None)
+        id_tarea = data.get('IdTarea', None)
+
+        historia_usuario = HistoriaUsuario(
+            Detalles=detalles,
+            CriteriosAceptacion=criterios_aceptacion,
+            Estado=estado,
+            IdProyecto=id_proyecto,
+            IdTarea=id_tarea
+        )
+
+        db.session.add(historia_usuario)
+        db.session.commit()
+
+        message = {
+            'status': 201,
+            'message': 'Historia de Usuario creada exitosamente!!! ',
+            'historia_usuario_id': historia_usuario.id
+        }
+    except Exception as e:
+        message = {
+            'status': 404,
+            'message': f'Algo salió mal: {str(e)}'
+        }
+
+    resp = jsonify(message)
+    return resp
+
+
+@app.route('/historiausuario/<int:id>', methods=['PUT'])
+def update_historia(id):
+    message = {
+        'status': 404,
+        'message': 'Historia de usuario no encontrada'
+    }
+    try:
+        new_detalles = request.form.get('Detalles', None)
+        new_criterios_aceptacion = request.form.get('CriteriosAceptacion', None)
+        new_estado = request.form.get('Estado', None)
+        new_id_proyecto = request.form.get('IdProyecto', None)
+        new_id_tarea = request.form.get('IdTarea', None)
+
+        try:
+            current_historia = HistoriaUsuario.query.get_or_404(id)
+        except:
+            return jsonify(message)
+
+        if new_detalles:
+            current_historia.Detalles = new_detalles
+        if new_criterios_aceptacion:
+            current_historia.CriteriosAceptacion = new_criterios_aceptacion
+        if new_estado:
+            current_historia.Estado = new_estado
+        if new_id_proyecto:
+            current_historia.IdProyecto = new_id_proyecto
+        if new_id_tarea:
+            current_historia.IdTarea = new_id_tarea
+
+        db.session.commit()
+        message.update({
+            'status': 200,
+            'message': 'Detalles de Historia de usuario actualizados exitosamente!!! '
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+@app.route('/historiausuario/<int:id>', methods=['DELETE'])
+def delete_historia(id):
+    message = {
+        'status': 404,
+        'message': 'Historia de usuario no encontrada'
+    }
+    try:
+        current_historia = HistoriaUsuario.query.get_or_404(id)
+        db.session.delete(current_historia)
+        db.session.commit()
+        message.update({
+            'status': 200,
+            'message': 'Registro de Historia de usuario eliminado exitosamente!!! '
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+
+@app.route('/tarea', methods=['GET'])
+def get_all_tareas():
+    message = {
+        'status': 404,
+        'message': 'Algo salió mal'
+    }
+    try:
+        data = Tarea.query.with_entities(
+            Tarea.id, Tarea.descripcion,
+            Tarea.estado, Tarea.idHistoriaUsuario
+        ).all()
+        message.update({
+            'status': 200,
+            'message': 'Se recuperan TODOS los registros de Tarea',
+            'data': data
+        })
+    except:
+        pass
+    return jsonify(message)
+
+@app.route('/tarea/<int:id>', methods=['GET'])
+def get_specific_tarea(id):
+    message = {
+        'status': 404,
+        'message': 'Tarea no existe'
+    }
+    data = Tarea.query.with_entities(
+        Tarea.id, Tarea.descripcion,
+        Tarea.estado, Tarea.idHistoriaUsuario
+    ).filter_by(id=id).all()
+    if len(data) == 0:
+        return jsonify(message)
+    message.update({
+        'status': 200,
+        'message': 'Se recupero el registro de Tarea',
+        'data': data
+    })
+    return jsonify(message)
+
+@app.route('/tarea', methods=['POST'])
+def create_tarea():
+    message = {
+        'status': 404,
+        'message': 'Algo salió mal'
+    }
+    try:
+        data = request.get_json()
+
+        descripcion = data.get('Descripcion', '')
+        estado = data.get('Estado', '')
+        id_historia_usuario = data.get('IdHistoriaUsuario', '')
+
+        tarea = Tarea(
+            Descripcion=descripcion,
+            Estado=estado,
+            IdHistoriaUsuario=id_historia_usuario
+        )
+        db.session.add(tarea)
+        db.session.commit()
+        message.update({
+            'status': 201,
+            'message': 'Tarea creada exitosamente!!! ',
+            'tarea_id': tarea.id
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+@app.route('/tarea/<int:id>', methods=['PUT'])
+def update_tarea(id):
+    message = {
+        'status': 404,
+        'message': 'Tarea no encontrada'
+    }
+    try:
+        new_descripcion = request.form.get('Descripcion', None)
+        new_estado = request.form.get('Estado', None)
+        new_id_historia_usuario = request.form.get('IdHistoriaUsuario', None)
+
+        try:
+            current_tarea = Tarea.query.get_or_404(id)
+        except:
+            return jsonify(message)
+
+        if new_descripcion:
+            current_tarea.Descripcion = new_descripcion
+        if new_estado:
+            current_tarea.Estado = new_estado
+        if new_id_historia_usuario:
+            current_tarea.IdHistoriaUsuario = new_id_historia_usuario
+
+        db.session.commit()
+        message.update({
+            'status': 200,
+            'message': 'Detalles de Tarea actualizados exitosamente!!! '
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
+
+@app.route('/tarea/<int:id>', methods=['DELETE'])
+def delete_tarea(id):
+    message = {
+        'status': 404,
+        'message': 'Tarea no encontrada'
+    }
+    try:
+        current_tarea = Tarea.query.get_or_404(id)
+        db.session.delete(current_tarea)
+        db.session.commit()
+        message.update({
+            'status': 200,
+            'message': 'Registro de Tarea eliminado exitosamente!!! '
+        })
+    except:
+        pass
+    resp = jsonify(message)
+    return resp
 
 
  # Se encuentra activada el modo DEBUG
