@@ -30,7 +30,11 @@
   <ul>
     <li> <code>http://localhost:5000/user</code></li>
   </ul>
-
+* Para obtener un registros especifico de un usuario, con el metodo <code>GET</code>
+  <ul>
+    <li> <code>http://localhost:5000/user/id</code></li>
+  </ul>
+  
 * Para crear un nuevo usuario, con el metodo <code>POST</code>
   <ul>
     <li> <code>http://localhost:5000/user</code></li>
