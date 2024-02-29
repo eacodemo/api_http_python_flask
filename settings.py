@@ -7,7 +7,7 @@ db_dir = os.path.abspath('data.sqlite')
 
 # app Configuracion 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'you-will-never-guess'
+app.config['SECRET_KEY'] = 'admin'
 app.config["DEBUG"] = True
 
 # Conexion para base de datos linux
