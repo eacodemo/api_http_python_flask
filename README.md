@@ -28,16 +28,16 @@
 
 * Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
   <ul>
-    <li> <code>http://localhost:5000/user</code></li>
+    <li> <code>http://localhost:5000/usuario</code></li>
   </ul>
 * Para obtener un registros especifico de un usuario, con el metodo <code>GET</code>
   <ul>
-    <li> <code>http://localhost:5000/user/id</code></li>
+    <li> <code>http://localhost:5000/usuario/id</code></li>
   </ul>
   
 * Para crear un nuevo usuario, con el metodo <code>POST</code>
   <ul>
-    <li> <code>http://localhost:5000/user</code></li>
+    <li> <code>http://localhost:5000/usuario</code></li>
   </ul>
 
   <ul>
@@ -60,7 +60,7 @@
  
 * Para actualizar los registros de los usuarios, con el metodo <code>PUT</code>
   <ul>
-    <li> <code>http://localhost:5000/user/id</code></li>
+    <li> <code>http://localhost:5000/usuario/id</code></li>
   </ul>
   <ul>
     <li>Abre Postman y crea una nueva solicitud.</li>
@@ -83,6 +83,6 @@
 
 * Para eliminar elregistro de un usuario, con el metodo <code>DELETE</code>
   <ul>
-    <li> <code>http://localhost:5000/user/id</code></li>
+    <li> <code>http://localhost:5000/usuario/id</code></li>
   </ul>
 
