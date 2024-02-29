@@ -41,3 +41,25 @@ class AsociacionProyectoUsuario(db.Model):
 
     def __str__(self):
         return self.idProyecto + self.idUsuario + self.rol
+    
+
+class HistoriaUsuario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    Detalles = db.Column(db.Text)
+    CriteriosAceptacion = db.Column(db.Text)
+    Estado = db.Column(db.String(50), nullable=False)
+    IdProyecto = db.Column(db.Integer, db.ForeignKey('proyecto.id'), nullable=False)
+    IdTarea = db.Column(db.Integer, db.ForeignKey('tarea.id'))
+
+    def __str__(self):
+        return self.Detalles + self.CriteriosAceptacion + self.Estado + self.IdProyecto + self.IdTarea
+    
+
+class Tarea(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    descripcion = db.Column(db.Text)
+    estado = db.Column(db.String(50), nullable=False)
+    idHistoriaUsuario = db.Column(db.Integer, db.ForeignKey('historiausuario.id'))
+
+    def __str__(self):
+        return self.descripcion + self.estado + self.idHistoriaUsuario
