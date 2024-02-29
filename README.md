@@ -246,9 +246,9 @@ Para obtener todos los registros de las tareas, con el metodo <code>GET</code>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
         <pre>
     	{
-	  "descripcion": "Tarea 4",
-  	  "estado": "Nuevo",
-  	  "idHistoriaUsuario": 3
+	 "descripcion": "Tarea 4",
+  	 "estado": "Nuevo",
+  	 "idHistoriaUsuario": 3
 	}
         </pre>
   </ul>
