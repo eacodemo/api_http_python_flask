@@ -15,9 +15,9 @@
 </ul>
 
 * Instalar dependencias 
-<ul>
-  <li><code>pip install -r requerimientos.txt</code></li>
-</ul>
+  <ul>
+    <li><code>pip install -r requerimientos.txt</code></li>
+  </ul>
 
 * Arrancar o ejecutar el codigo
 <ul>
