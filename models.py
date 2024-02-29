@@ -17,5 +17,17 @@ class User(db.Model):
       )
 
     def __str__(self):
-        return self.id + self.nombreUsuario + self.email + self.tipo
+        return self.nombreUsuario + self.email + self.tipo
 
+class Proyecto(db.Model):
+    
+  id = db.Column(db.Integer, primary_key=True)
+  nombre = db.Column(db.String(255))
+  descripcion = db.Column(db.Text)
+  fechaInicio = db.Column(
+     db.TIMESTAMP, 
+     nullable=False, 
+     default=datetime.utcnow)
+
+  def __str__(self):
+    return self.nombre + self.descripcion + self.fechaInicio
