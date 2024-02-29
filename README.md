@@ -112,7 +112,6 @@
       "nombre": "Proyecto Nuevo 5",
       "descripcion": "Descripción del Proyecto 5"
     }
-
         </pre>
     </li>
   </ul>
@@ -129,8 +128,7 @@
         "nombre": "Proyecto Nuevo 5",
         "descripcion": "Descripción del Proyecto  - actualizar"
     }
-
-        </pre>
+       </pre>
     </li>
   </ul>
 
@@ -165,7 +163,6 @@ Para obtener todos los registros de los AsociacionProyectoUsuario, con el metodo
       "idUsuario": 2,
       "rol": "Gerente"
     }
-
         </pre>
     </li>
   </ul>
