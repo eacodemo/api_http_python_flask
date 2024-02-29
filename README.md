@@ -43,7 +43,7 @@
   <ul>
     <li>Abre Postman y crea una nueva solicitud.</li>
     <li>Selecciona el método <code>POST</code> en la barra desplegable.</li>
-    <li>Ingresa la URL a la que deseas en<code>POST</code> la solicitud en la barra de direcciones.</li>
+    <li>Ingresa la URL a la que deseas enviar la solicitud en la barra de direcciones.</li>
     <li>Ve a la sección "Body" dentro de la solicitud en Postman.</li>
     <li>Selecciona <code>raw</code> como el tipo de datos.</li>
     <li>
