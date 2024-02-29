@@ -26,7 +26,7 @@
  
 ## Utilizar
 
-* Para obtener todos los registros de los usuarios, con el metodo <li><code>GET</code><li> 
+* Para obtener todos los registros de los usuarios, con el metodo <code>GET</code>
   <ul>
     <li> <code>http://localhost:5000/user</code></li>
   </ul>
