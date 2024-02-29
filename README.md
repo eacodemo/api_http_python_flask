@@ -1,12 +1,11 @@
 # Api Rest 
 ## Python con Flask
 
-## requisitos
+## Requisitos
 * Python
 * Flask
-* Postman
-* Db browaser for Sqlite (Si requiere ver las tablas) u otro.
 * Postman o navegador
+* Db browaser for Sqlite (Si requiere ver las tablas) u otro.
 
 ## Como utilizar este codigo
 * Clonar el repositorio
@@ -27,7 +26,7 @@
  
 ## Utilizar
 
-* Para obtener los registros de los usuarios.
+* Para obtener todos los registros de los usuarios.
   <ul>
     <li> <code>http://localhost:5000/user</code></li>
   </ul>
