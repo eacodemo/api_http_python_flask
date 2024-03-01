@@ -1,11 +1,12 @@
-from flask import (
-  Flask, request, jsonify)
 from settings import db, app
 from models import User
 from models import Proyecto
 from models import AsociacionProyectoUsuario
 from models import HistoriaUsuario
 from models import Tarea
+from flask import Flask, request, jsonify
+
+
 
 @app.route('/usuario', methods=['GET'])
 def get_all_users():
