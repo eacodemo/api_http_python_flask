@@ -26,6 +26,15 @@
     <li><code> python myapp.py </code></li>
     <li><code> python3 myapp.py </code></li>
   </ul>
+
+## Arrancar los Test Unitarios
+
+* Arrancar o ejecutar el codigo
+  <ul>
+    <li><code> python test_myapp.py </code></li>
+    <li><code> python3 test_myapp.py </code></li>
+  </ul>
+
  
 ## Utilizar los metodos de CRUD para este proyecto
 
