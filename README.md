@@ -6,6 +6,9 @@
 * Flask
 * Postman o navegador
 * Db browaser for Sqlite (Si requiere ver las tablas) u otro.
+## Documentacion
+
+* Toda la documentacion se encuentra en los archivos *.py
 
 ## Como utilizar este codigo
 * Clonar el repositorio
